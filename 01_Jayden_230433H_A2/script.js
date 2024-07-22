@@ -1,75 +1,45 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Card matching game setup
-    const cardsArray = [
-        { name: 'card1', img: 'img/card1.png' },
-        { name: 'card2', img: 'img/card2.png' },
-        { name: 'card3', img: 'img/card3.png' },
-        { name: 'card4', img: 'img/card4.png' },
-        { name: 'card5', img: 'img/card5.png' },
-        { name: 'card6', img: 'img/card6.png' },
-        { name: 'card1', img: 'img/card1.png' },
-        { name: 'card2', img: 'img/card2.png' },
-        { name: 'card3', img: 'img/card3.png' },
-        { name: 'card4', img: 'img/card4.png' },
-        { name: 'card5', img: 'img/card5.png' },
-        { name: 'card6', img: 'img/card6.png' }
-    ];
+document.addEventListener("DOMContentLoaded", function () {
+    // Get all sections
+    const sections = document.querySelectorAll("section");
 
-    const grid = document.querySelector('.grid');
-    const resultDisplay = document.querySelector('#result');
-    let cardsChosen = [];
-    let cardsChosenId = [];
-    let cardsWon = [];
+    // Hide all sections initially
+    sections.forEach(section => {
+        section.style.display = "none";
+    });
 
-    // Shuffle the cards array
-    cardsArray.sort(() => 0.5 - Math.random());
+    // Show the Home section by default
+    const homeSection = document.getElementById("home-section");
+    homeSection.style.display = "block";
 
-    // Create the game board
-    function createBoard() {
-        for (let i = 0; i < cardsArray.length; i++) {
-            const card = document.createElement('img');
-            card.setAttribute('src', 'img/blank.png');
-            card.setAttribute('data-id', i);
-            card.addEventListener('click', flipCard);
-            grid.appendChild(card);
-        }
+    // Function to handle navigation click events
+    function handleNavClick(event) {
+        event.preventDefault();
+        const targetId = event.target.getAttribute("href").substring(1); // Extract the ID
+        sections.forEach(section => {
+            if (section.id === targetId) {
+                section.style.display = "block";
+                section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section
+            } else {
+                section.style.display = "none"; // Hide other sections
+            }
+        });
     }
 
-    // Check for matches
-    function checkForMatch() {
-        const cards = document.querySelectorAll('img');
-        const optionOneId = cardsChosenId[0];
-        const optionTwoId = cardsChosenId[1];
+    // Add click event listeners to all navigation links
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", handleNavClick);
+    });
 
-        if (cardsChosen[0] === cardsChosen[1]) {
-            cards[optionOneId].setAttribute('src', 'img/white.png');
-            cards[optionTwoId].setAttribute('src', 'img/white.png');
-            cardsWon.push(cardsChosen);
-        } else {
-            cards[optionOneId].setAttribute('src', 'img/blank.png');
-            cards[optionTwoId].setAttribute('src', 'img/blank.png');
-        }
-
-        cardsChosen = [];
-        cardsChosenId = [];
-        resultDisplay.textContent = cardsWon.length;
-
-        if (cardsWon.length === cardsArray.length / 2) {
-            resultDisplay.textContent = 'Congratulations! You found them all!';
-        }
-    }
-
-    // Flip the card
-    function flipCard() {
-        let cardId = this.getAttribute('data-id');
-        cardsChosen.push(cardsArray[cardId].name);
-        cardsChosenId.push(cardId);
-        this.setAttribute('src', cardsArray[cardId].img);
-
-        if (cardsChosen.length === 2) {
-            setTimeout(checkForMatch, 500);
-        }
-    }
-
-    createBoard();
+    // Add a click event listener to the home link
+    document.getElementById("home-link-nav").addEventListener("click", (event) => {
+        event.preventDefault();
+        sections.forEach(section => {
+            if (section.id === "home-section") {
+                section.style.display = "block";
+                section.scrollIntoView({ behavior: "smooth" });
+            } else {
+                section.style.display = "none";
+            }
+        });
+    });
 });

@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-    
 
 <head>
     <title>230433H_OUNJAYDEN_A2</title>
@@ -16,14 +15,19 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <style>
+        section {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <!---Navbar Started-->
-        <nav class="navbar navbar-expand-lg  fixed-top">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="navbar-brand ms-2" href="#">Jayoun</a>
+                <a class="navbar-brand ms-2" href="#" id="home-link">Jayounnn</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -32,7 +36,7 @@
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                            logo
+                            Jayounnn
                         </h5>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
@@ -40,40 +44,34 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end me-4 flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link  mx-lg-2" aria-current="page" href="index.html">Home</a>
+                                <a class="nav-link mx-lg-2" href="#" id="home-link-nav">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#introduction">About Us</a>
+                                <a class="nav-link mx-lg-2" href="#introduction" id="about-link">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#shuffling">Shuffling Techniques</a>
+                                <a class="nav-link mx-lg-2" href="#shuffling" id="shuffling-link">Shuffling Techniques</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#tipsandtricks">Tips & Tricks </a>
+                                <a class="nav-link mx-lg-2" href="#tipsandtricks" id="tips-link">Tips & Tricks</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#magictricks">Magic Tricks</a>
+                                <a class="nav-link mx-lg-2" href="#magictricks" id="magic-link">Magic Tricks</a>
                             </li>
-
                         </ul>
-
                     </div>
                 </div>
             </div>
         </nav>
         <!---Navbar Ended-->
-
     </header>
     <main>
         <!-- hero section started -->
-        <section class="hero-section">
+        <section class="hero-section" id="home-section">
             <div class="video-background">
-                <!-- <iframe src="https://www.youtube.com/embed/f6ZD1lDbW3M?autoplay=1&mute=1" width="1000" height="100%"
-                    title="Overhand Shuffle Tutorial" frameborder="0" allowfullscreen></iframe> -->
                 <iframe src="https://www.youtube.com/embed/f6ZD1lDbW3M?autoplay=1&mute=1&loop=1&playlist=f6ZD1lDbW3M"
                     width="1000" height="100%" title="Overhand Shuffle Tutorial" frameborder="0"
                     allowfullscreen></iframe>
-
             </div>
             <div class="container d-flex align-items-center justify-content-center text-white flex-column">
                 <h1 class="mt-5 text-center">Mastering Card Shuffling Techniques and Beginner Card Magic Tricks</h1>
@@ -97,16 +95,14 @@
                     <div class="col-md-6">
                         <img src="images/overhand_shuffle (1).jpg" class="img-fluid rounded" alt="introduction">
                     </div>
-
-
                 </div>
             </div>
         </section>
         <!-- Introduction section ended -->
         <!-- Why Shuffling Matters section started -->
-        <section class="centered-section">
+        <section class="centered-section" id="why-shuffling">
             <div class="container-section">
-                <h2 class=" text-center">Why Shuffling Matters</h2>
+                <h2 class="text-center">Why Shuffling Matters</h2>
                 <p class="mt-3 text-center">Shuffling is more than just mixing up the deck; it's a fundamental skill
                     that ensures fairness and randomness in games and tricks. Proper shuffling prevents any prediction
                     of card order, adding credibility and excitement to your performance.
@@ -118,7 +114,7 @@
         <!-- Basic Shuffling Techniques section started -->
         <section id="shuffling">
             <div class="row threecards container-section ">
-                <h2 class=" text-center">Basic Shuffling Techniques</h2>
+                <h2 class="text-center">Basic Shuffling Techniques</h2>
                 <div class="card m-5 " style="width: 18rem; border: 2px solid black;">
                     <iframe class="pt-3 ps-2 " width="250" height="160"
                         src="https://www.youtube.com/embed/_BlK5g9AUCM?si=V-UCn-5oaa0_TNQe" title="YouTube video player"
@@ -141,272 +137,118 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <div class="card-body">
                         <h5 class="card-title text-center">Riffle Shuffle</h5>
-                        <p class="card-text pt-3">The Riffle Shuffle is popular for its efficiency and effectiveness.
-                            Split the deck into two halves, then riffle the edges together so the cards interlace.
+                        <p class="card-text pt-3">The Riffle Shuffle is a more advanced technique that creates a
+                            satisfying "riffle" sound. Split the deck into two halves, hold them with your thumbs at the
+                            inner edges, and release the cards so that they interweave.
                         </p>
                     </div>
                 </div>
                 <div class="card m-5 " style="width: 18rem;border: 2px solid black;">
                     <iframe class="pt-3 ps-2 " width="250" height="160"
-                        src="https://www.youtube.com/embed/62VSytPMTCc?si=qEsirobjIBjEyVtb" title="YouTube video player"
+                        src="https://www.youtube.com/embed/62VSytPMTCc" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     <div class="card-body">
-                        <h5 class="card-title text-center">Hindu Shuffle</h5>
-                        <p class="card-text pt-3">The Hindu Shuffle is often used in magic tricks due to its smooth and
-                            flowing motion. Hold the deck lengthwise and draw small packets from the top, allowing them
-                            to fall into your other hand.
+                        <h5 class="card-title text-center">The Hindu Shuffle</h5>
+                        <p class="card-text pt-3">The Hindu Shuffle is another simple technique. Hold the deck in one
+                            hand, and with the other, pull small packets of cards from the top and place them into your
+                            palm.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Basic Shuffling Techniques section ended -->
-        <!-- Advanced Shuffling Techniques section started -->
-        <section>
-            <div class="row threecards container-section ">
-                <h2 class=" text-center">Advanced Shuffling Techniques</h2>
-                <div class="card m-5 " style="width: 18rem; border: 2px solid black;">
-                    <iframe class="pt-3 ps-2 " width="250" height="160"
-                        src="https://www.youtube.com/embed/A-tSm8g-_pw?si=trajCQb7ZwcDc3uZ" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Faro Shuffle</h5>
-                        <p class="card-text pt-3">The Faro Shuffle involves perfectly interleaving the cards. It
-                            requires precision but is visually impressive and creates a thoroughly mixed deck.
-                        </p>
-                    </div>
-                </div>
-                <div class="card m-5 " style="width: 18rem;border: 2px solid black;">
-                    <iframe class="pt-3 ps-2 " width="250" height="160"
-                        src="https://www.youtube.com/embed/TlfbxprcyMo?si=ihqqHI4K0nHpm2xG" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">One-Handed Shuffle</h5>
-                        <p class="card-text pt-3">The One-Handed Shuffle is a flashy technique that showcases dexterity
-                            and skill. It’s perfect for adding flair to your performances.
-                        </p>
-                    </div>
-                </div>
-                <div class="card m-5 " style="width: 18rem;border: 2px solid black;">
-                    <iframe class="pt-3 ps-2 " width="250" height="160"
-                        src="https://www.youtube.com/embed/bDMQf3A5HsA?si=gzHli-mEjfpieCOM" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">False Shuffles</h5>
-                        <p class="card-text pt-3">False Shuffles are designed to maintain the order of the deck while
-                            giving the appearance of a thorough shuffle. They are essential for many magic tricks.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Advanced Shuffling Techniques section ended -->
         <!-- Tips and Tricks section started -->
-        <section class="introduction mt-5" id="tipsandtricks">
+        <section class="centered-section" id="tipsandtricks">
             <div class="container-section">
+                <h2 class="text-center">Tips and Tricks</h2>
                 <div class="row align-items-center">
-
                     <div class="col-md-6">
-                        <img src="images/faro_shuffle (1).jpg" class="img-fluid rounded" alt="introduction">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Tips and Tricks for Perfect Shuffling
-                        </h2>
-                        <p class="mt-3 text-start">Use a soft surface to protect your cards.
-                            Practice regularly to develop smooth, fluid motions.
-                            Keep your cards clean and in good condition.
+                        <h3 class="text-center">Get comfortable with the cards:</h3>
+                        <p> Practice holding and manipulating the deck to build muscle memory and improve your control.
                         </p>
+                        <img src="images/faro_shuffle (1).jpg" class="img-fluid rounded" alt="introduction">
+                        <h3 class="text-center">Use a table edge:</h3>
+                        <p> A table edge can help guide the cards during shuffling, making the process smoother and more
+                            controlled.</p>
                     </div>
-
-
+                    <div class="col-md-6">
+                        <h3 class="text-center">Keep the deck square:</h3>
+                        <p> Ensure the deck remains neat and aligned during shuffling to avoid cards slipping out or
+                            becoming bent.
+                        </p>
+                        <h3 class="text-center">Practice regularly:</h3>
+                        <p> Consistent practice is key to mastering any shuffling technique and performing tricks with
+                            confidence.</p>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- Tips and Tricks section ended -->
-        <!-- Common Mistakes section started -->
-        <section class="introduction mt-5">
-            <div class="container-section ">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h2>Common Mistakes and How to Avoid Them
-                        </h2>
-                        <p class="mt-3 text-start">
-                        <ol>
-                            <li>Avoid bending the cards too much.</li>
-                            <li>Don’t rush the shuffle; focus on precision.</li>
-                            <li>Practice different techniques to find what works best for you.</li>
-                        </ol>
+        <!-- Easy Magic Tricks for Beginners section started -->
+        <section id="magictricks">
+            <div class="row threecards container-section">
+                <h2 class="text-center">Easy Magic Tricks for Beginners</h2>
+                <div class="card m-5 " style="width: 18rem;border: 2px solid black;">
+                    <iframe class="pt-3 ps-2 " width="250" height="160"
+                        src="https://www.youtube.com/embed/XHOmBV4js_E?si=C7AfBGtdp6uRq7I8" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Color Change</h5>
+                        <p class="card-text pt-3">The Color Change trick involves changing the color of a card right
+                            before your audience's eyes. It requires sleight of hand but can be incredibly impactful
+                            when executed correctly.
                         </p>
                     </div>
-                    <div class="col-md-6">
-                        <img src="images/riffle_shuffle (2).jpg" class="img-fluid rounded" alt="introduction">
-                    </div>
-
-
-
                 </div>
-            </div>
-        </section>
-        <!-- Common Mistakes section ended -->
-        <!-- Practice Exercises section started -->
-        <section class="centered-section">
-            <div class="container-section">
-                <h2 class=" text-center">Practice Exercises</h2>
-                <p class="mt-3 text-center">Start with the Overhand Shuffle and progress to more advanced techniques.
-                    Try shuffling in front of a mirror to observe your hand movements.
-                    Record your practice sessions to track your improvement.
-                </p>
-                <img src="images/falsehand_shuffle (2).jpg" style="border-radius: 16px;  width: 100%;" alt="">
-            </div>
-        </section>
-        <!-- Practice Exercises section ended -->
-
-        <!-- Beginner Card section started -->
-        <section class="centered-section" id="magictricks">
-            <div class="container-section">
-                <h2 class=" text-center">Beginner Card Magic Tricks</h2>
-
-                <div class="container">
-                    <div class="row pt-5 ">
-                        <div class="col-md-3 spacing">
-                            <div class=" card h-100">
-                                <iframe class="card-img-top" height="300" width="300"
-                                    src="https://www.youtube.com/embed/Gjd4EDm3EWU?si=4ZWKGO5uMf1POcsw"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <div class=" card-body pt-5">
-                                    <h5 class="card-title">
-                                        The Double Lift</h5>
-                                    <p class="card-text">The Double Lift is a fundamental sleight where you lift two
-                                        cards as one, making the audience believe they are seeing a single card. This
-                                        trick is the basis for many card illusions.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 spacing">
-                            <div class=" card h-100">
-                                <iframe class="card-img-top" width="300" height="300"
-                                    src="https://www.youtube.com/embed/bDMQf3A5HsA?si=yxpFp8Ne6GcyO3js"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <div class=" card-body pt-5">
-                                    <h5 class="card-title">The False Cut</h5>
-                                    <p class="card-text">The False Cut is a technique where the deck appears to be cut,
-                                        but the order of the cards remains unchanged. It's perfect for maintaining
-                                        control over the deck.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 spacing">
-                            <div class=" card h-100">
-                                <iframe class="card-img-top" width="300" height="300"
-                                    src="https://www.youtube.com/embed/0kxSPJzKYkg?si=pw9zEdHBzDn6J_3X"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <div class=" card-body pt-5">
-                                    <h5 class="card-title">The Classic Force</h5>
-                                    <p class="card-text">The Classic Force is a method to subtly influence a spectator
-                                        to select a card of your choice. It requires practice but is a powerful tool in
-                                        any magician's arsenal.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 spacing">
-                            <div class=" card  h-100">
-                                <iframe class="card-img-top" width="300" height="300"
-                                    src="https://www.youtube.com/embed/XHOmBV4js_E?si=C7AfBGtdp6uRq7I8"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <div class="card-body pt-5">
-                                    <h5 class="card-title">The Color Change</h5>
-                                    <p class="card-text">The Color Change is a visually stunning trick where one card
-                                        seemingly changes into another right before the audience's eyes. It's a great
-                                        way to add a wow factor to your routine.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card m-5 " style="width: 18rem;border: 2px solid black;">
+                    <iframe class="pt-3 ps-2 " width="250" height="160"
+                        src="https://www.youtube.com/embed/0kxSPJzKYkg?si=pw9zEdHBzDn6J_3X" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Forcing a Card</h5>
+                        <p class="card-text pt-3">Forcing a Card is a technique where you make the audience pick a
+                            specific card without them realizing it. This trick can be used in various card routines to
+                            create a seemingly impossible outcome.
+                        </p>
+                    </div>
+                </div>
+                <div class="card m-5 " style="width: 18rem;border: 2px solid black;">
+                    <iframe class="pt-3 ps-2 " width="250" height="160"
+                        src="https://www.youtube.com/embed/bDMQf3A5HsA?si=yxpFp8Ne6GcyO3js" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">False Shuffle</h5>
+                        <p class="card-text pt-3">A False Shuffle lets you appear to mix the deck while keeping certain
+                            cards in their original positions. This trick is crucial for many advanced card routines and
+                            adds an element of surprise to your performance.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Beginner Card section ended -->
-        <!-- Conclusion section started -->
-        <section class="centered-section">
-            <div class="container-section">
-                <h2 class=" text-center">Conclusion</h2>
-                <p class="mt-3 text-center">
-                    Mastering card shuffling and basic magic tricks is a journey that enhances your overall card
-                    handling skills. With practice and dedication, you'll be able to perform seamless shuffles and
-                    impressive tricks that captivate your audience. Keep practicing, and soon you'll shuffle and perform
-                    like a pro!
-                </p>
-            </div>
-        </section>
-        <!-- Conclusion section ended -->
-
-
+        <!-- Easy Magic Tricks for Beginners section ended -->
     </main>
-    <footer>
-        <!-- footer started -->
-        <div class="footercontainer">
-
-            <div class="footernavbar ">
-                <ul class="d-flex justify-content-center">
-                    <li><a href="">Home</a></li>
-                    <li>
-                        <a href="#">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#">Shuffling Techniques</a>
-                    </li>
-                    <li>
-                        <a href="#">Tips & Tricks </a>
-                    </li>
-                    <li>
-                        <a href="#">Magic Tricks</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="socialicons d-flex justify-content-center">
-                <a href=""><i class="fab fa-facebook" style="color: #ffffff;"></i>
-                </a>
-                <a href=""><i class="fa-brands fa-instagram" style="color: #ffffff;  "></i></a>
-                <a href=""> <i class="fa-brands fa-youtube" style="color: #ffffff;  "></i></a>
-            </div>
-            <div class="footerlast d-flex justify-content-center">
-                <p style="color: rgb(219, 213, 213);">Copyright &copy; 2024. All rights reserved.</p>
-            </div>
-
-        </div>
-        <!-- footer ended -->
+    <footer class="text-center text-white pb-4">
+        <p>Copyright © 2023 Jayounnn. All rights reserved.</p>
     </footer>
 
     <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
-
-    <!-- JavaScript File -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+crossorigin="anonymous"></script>
+    <!-- External JavaScript file -->
     <script src="script.js"></script>
 </body>
 
