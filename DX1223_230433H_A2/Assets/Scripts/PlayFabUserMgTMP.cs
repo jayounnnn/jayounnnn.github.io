@@ -3,8 +3,6 @@ using PlayFab.ClientModels;
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.PackageManager;
-using static UnityEditor.Progress;
 
 public class PlayFabUserMgtTMP : MonoBehaviour
 {
