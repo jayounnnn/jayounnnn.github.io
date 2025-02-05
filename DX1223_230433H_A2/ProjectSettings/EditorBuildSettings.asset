@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RegLoginScene.unity
-    guid: 26c8f1adf36502246bef87de49b42012
+    path: Assets/Scenes/RegLogScene.unity
+    guid: 087e32724c8fb3f4cb4093fdad5104f9
+  - enabled: 1
+    path: Assets/Scenes/RegisterScene.unity
+    guid: cd82f8c8ad6d22340b9d5133b04478f6
+  - enabled: 1
+    path: Assets/Spaceshooter/_Scenes/Menu.unity
+    guid: 51d5079a8903f4f37a90174bf793ca06
+  - enabled: 1
+    path: Assets/Spaceshooter/_Scenes/Main.unity
+    guid: 0938f1be7c1804045bc2441b202785af
   - enabled: 1
     path: Assets/Scenes/InventoryScene.unity
     guid: 9829d02d14d94594faded669d9125b9b
