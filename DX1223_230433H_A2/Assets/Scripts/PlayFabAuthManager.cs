@@ -210,4 +210,6 @@ public class PlayFabAuthManager : MonoBehaviour
         confirmPasswordField.contentType = isChecked ? TMP_InputField.ContentType.Standard : TMP_InputField.ContentType.Password;
         confirmPasswordField.ForceLabelUpdate();
     }
+
+
 }

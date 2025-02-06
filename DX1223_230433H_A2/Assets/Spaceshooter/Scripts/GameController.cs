@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using PlayFab;
+using PlayFab.ClientModels;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
@@ -75,6 +77,7 @@ public class GameController : MonoBehaviour {
     public void gameIsOver(){
         gameOverText.text = "Game Over";
         gameOver = true;
+        SubmitScoreToPlayFab(score);
     }
 
     public void addScore(int score){
@@ -86,4 +89,30 @@ public class GameController : MonoBehaviour {
         scoreText.text = "Score:" + score;
     }
 
+    void SubmitScoreToPlayFab(int finalScore)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+        {
+            new StatisticUpdate
+            {
+                StatisticName = "highscore", // Ensure this matches PlayFab's leaderboard name
+                Value = finalScore
+            }
+        }
+        };
+
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnScoreUpdateSuccess, OnError);
+    }
+
+    void OnScoreUpdateSuccess(UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("Score successfully submitted to PlayFab!");
+    }
+
+    void OnError(PlayFabError error)
+    {
+        Debug.LogError("Error updating PlayFab leaderboard: " + error.GenerateErrorReport());
+    }
 }
