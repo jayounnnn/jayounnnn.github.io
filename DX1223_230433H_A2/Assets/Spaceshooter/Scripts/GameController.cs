@@ -26,8 +26,13 @@ public class GameController : MonoBehaviour {
     private int score;
     private List<GameObject> asteroids;
 
-    private void Start() {
-        asteroids = new List<GameObject> {
+    public PlayerProgressManager progressManager;
+    private int accumulatedScore = 0; 
+
+    private void Start() 
+    {
+        asteroids = new List<GameObject>
+        {
             asteroid,
             asteroid2,
             asteroid3
@@ -40,6 +45,13 @@ public class GameController : MonoBehaviour {
         score = 0;
         StartCoroutine(spawnWaves());
         updateScore();
+
+        if (progressManager == null)
+        {
+            progressManager = FindObjectOfType<PlayerProgressManager>();
+        }
+
+
     }
 
     private void Update() {
@@ -80,8 +92,17 @@ public class GameController : MonoBehaviour {
         SubmitScoreToPlayFab(score);
     }
 
-    public void addScore(int score){
-        this.score += score;
+    public void addScore(int newScore)
+    {
+        score += newScore;
+        accumulatedScore += newScore;
+
+        while (accumulatedScore >= 50)
+        {
+            progressManager.AddXP(1);
+            accumulatedScore -= 50;
+        }
+
         updateScore();
     }
 
@@ -89,30 +110,33 @@ public class GameController : MonoBehaviour {
         scoreText.text = "Score:" + score;
     }
 
-    void SubmitScoreToPlayFab(int finalScore)
-    {
+    // Function to submit score to PlayFab
+void SubmitScoreToPlayFab(int finalScore)
+{
+        Debug.Log($"Submitting score: {finalScore}");
+
         var request = new UpdatePlayerStatisticsRequest
-        {
-            Statistics = new List<StatisticUpdate>
+    {
+        Statistics = new List<StatisticUpdate>
         {
             new StatisticUpdate
             {
-                StatisticName = "highscore", // Ensure this matches PlayFab's leaderboard name
+                StatisticName = "highscore", 
                 Value = finalScore
             }
         }
-        };
+    };
 
-        PlayFabClientAPI.UpdatePlayerStatistics(request, OnScoreUpdateSuccess, OnError);
-    }
+    PlayFabClientAPI.UpdatePlayerStatistics(request, OnScoreUpdateSuccess, OnError);
+}
 
-    void OnScoreUpdateSuccess(UpdatePlayerStatisticsResult result)
-    {
-        Debug.Log("Score successfully submitted to PlayFab!");
-    }
+void OnScoreUpdateSuccess(UpdatePlayerStatisticsResult result)
+{
+    Debug.Log("Score successfully submitted to PlayFab!");
+}
 
-    void OnError(PlayFabError error)
-    {
-        Debug.LogError("Error updating PlayFab leaderboard: " + error.GenerateErrorReport());
-    }
+void OnError(PlayFabError error)
+{
+    Debug.LogError("Error updating PlayFab leaderboard: " + error.GenerateErrorReport());
+}
 }

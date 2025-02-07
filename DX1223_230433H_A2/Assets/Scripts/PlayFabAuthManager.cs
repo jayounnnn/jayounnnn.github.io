@@ -1,4 +1,4 @@
-using PlayFab;
+﻿using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
 using System.Collections.Generic;
@@ -18,18 +18,31 @@ public class PlayFabAuthManager : MonoBehaviour
     [SerializeField] Toggle showRegisterPasswordToggle, showConfirmPasswordToggle;
     [SerializeField] TextMeshProUGUI registerMessage;
 
+
     void Start()
     {
+        rememberMeToggle.isOn = false;
         LoadRememberMeData();
 
         if (showPasswordToggle != null)
+        {
+            showPasswordToggle.isOn = false;
             showPasswordToggle.onValueChanged.AddListener(ToggleShowPassword);
+        }
 
         if (showRegisterPasswordToggle != null)
+        {
+            showRegisterPasswordToggle.isOn = false;
             showRegisterPasswordToggle.onValueChanged.AddListener(ToggleShowRegisterPassword);
+        }
 
         if (showConfirmPasswordToggle != null)
+        {
+            showConfirmPasswordToggle.isOn = false;
             showConfirmPasswordToggle.onValueChanged.AddListener(ToggleShowConfirmPassword);
+        }
+
+        AutoLoginIfRemembered();
     }
 
     void UpdateMessage(TextMeshProUGUI messageField, string msg)
@@ -46,7 +59,7 @@ public class PlayFabAuthManager : MonoBehaviour
         UpdateMessage(messageField, "Error: " + error.GenerateErrorReport());
     }
 
-    // **Scene Management**
+    /*--------------------| Scene Management |--------------------*/
     public void GoToRegisterScene()
     {
         SceneManager.LoadScene("RegisterScene");
@@ -55,6 +68,31 @@ public class PlayFabAuthManager : MonoBehaviour
     public void GoToLoginScene()
     {
         SceneManager.LoadScene("RegLogScene");
+    }
+
+    public void GoToMenuScene()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void GoToGlobalLeaderboardScene()
+    {
+        SceneManager.LoadScene("GlobalLeaderboard");
+    }
+
+    public void GoToNearbyLeaderboardScene()
+    {
+        SceneManager.LoadScene("NearbyLeaderboard");
+    }
+
+    public void GoToShopScene()
+    {
+        SceneManager.LoadScene("Shop");
+    }
+
+    public void GoToInventoryScene()
+    {
+        SceneManager.LoadScene("Inventory");
     }
 
     public void RegisterUser()
@@ -126,7 +164,9 @@ public class PlayFabAuthManager : MonoBehaviour
     void OnLoginSuccess(LoginResult result)
     {
         string displayName = result.InfoResultPayload.PlayerProfile?.DisplayName ?? "No Display Name";
-        UpdateMessage(loginMessage, "Login Success! Welcome, " + displayName);
+        string playFabId = result.PlayFabId;
+
+        UpdateMessage(loginMessage, $"Login Success! Welcome, {displayName} ({playFabId})");
 
         if (rememberMeToggle.isOn)
         {
@@ -140,6 +180,8 @@ public class PlayFabAuthManager : MonoBehaviour
             PlayerPrefs.DeleteKey("SavedEmailUsername");
             PlayerPrefs.DeleteKey("SavedPassword");
         }
+
+        SceneManager.LoadScene("Menu");
     }
 
     public void GuestLogin()
@@ -157,17 +199,43 @@ public class PlayFabAuthManager : MonoBehaviour
 
     void OnGuestLoginSuccess(LoginResult result)
     {
-        UpdateMessage(loginMessage, "Guest Login Successful! Welcome.");
+        string guestName = $"Guest_{result.PlayFabId}";
+        UpdateMessage(loginMessage, $"Guest Login Successful! Welcome, {guestName}");
+
+        SceneManager.LoadScene("Menu");
     }
 
     void LoadRememberMeData()
     {
-        if (PlayerPrefs.HasKey("RememberMe") && PlayerPrefs.GetInt("RememberMe") == 1)
+        if (PlayerPrefs.GetInt("RememberMe", 0) == 1)
         {
-            rememberMeToggle.isOn = true;
             emailUsernameField.text = PlayerPrefs.GetString("SavedEmailUsername", "");
             passwordField.text = PlayerPrefs.GetString("SavedPassword", "");
+            rememberMeToggle.isOn = true;
         }
+        else
+        {
+            rememberMeToggle.isOn = false;
+        }
+
+        passwordField.contentType = TMP_InputField.ContentType.Password;
+        passwordField.ForceLabelUpdate();
+    }
+
+    void AutoLoginIfRemembered()
+    {
+        if (PlayerPrefs.GetInt("RememberMe", 0) == 1)
+        {
+            LoginUser();
+        }
+    }
+
+    public void Logout()
+    {
+        PlayerPrefs.SetInt("RememberMe", 0);
+        PlayerPrefs.DeleteKey("SavedEmailUsername");
+        PlayerPrefs.DeleteKey("SavedPassword");
+        SceneManager.LoadScene("RegLogScene");
     }
 
     public void ForgotPassword()
@@ -210,6 +278,4 @@ public class PlayFabAuthManager : MonoBehaviour
         confirmPasswordField.contentType = isChecked ? TMP_InputField.ContentType.Standard : TMP_InputField.ContentType.Password;
         confirmPasswordField.ForceLabelUpdate();
     }
-
-
 }
