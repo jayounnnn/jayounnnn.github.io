@@ -29,7 +29,7 @@ public class PlayerProgressManager : MonoBehaviour
         {
             int currentXP = int.Parse(data["XP"]);
             int currentLevel = int.Parse(data["Level"]);
-            UpdateUI(currentXP, currentLevel);  // Initial UI update to reflect current XP and level
+            UpdateUI(currentXP, currentLevel);  
         });
     }
 

@@ -21,15 +21,6 @@ public class PlayFabAuthManager : MonoBehaviour
 
     void Start()
     {
-        rememberMeToggle.isOn = false;
-        LoadRememberMeData();
-
-        if (showPasswordToggle != null)
-        {
-            showPasswordToggle.isOn = false;
-            showPasswordToggle.onValueChanged.AddListener(ToggleShowPassword);
-        }
-
         if (showRegisterPasswordToggle != null)
         {
             showRegisterPasswordToggle.isOn = false;
@@ -41,6 +32,15 @@ public class PlayFabAuthManager : MonoBehaviour
             showConfirmPasswordToggle.isOn = false;
             showConfirmPasswordToggle.onValueChanged.AddListener(ToggleShowConfirmPassword);
         }
+
+        if (showPasswordToggle != null)
+        {
+            showPasswordToggle.isOn = false;
+            showPasswordToggle.onValueChanged.AddListener(ToggleShowPassword);
+        }
+
+        rememberMeToggle.isOn = false;
+        LoadRememberMeData();
 
         AutoLoginIfRemembered();
     }
